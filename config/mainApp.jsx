@@ -12,7 +12,7 @@ function startApplication() {
   // var RouterActions = require("./actions/router");
 
   // Require all stores to ensure they are listening
-  // require("./stores/admin");
+  require("../app/stores/autocomplete");
 
   router.run(function(Handler, state) {
 

@@ -1,13 +1,16 @@
 import React from 'react';
 
+import Autocomplete from '../components/Autocomplete';
+
 const HomePage = React.createClass({
 
   render() {
     return (
       <div>
-        <h2>Homepage</h2>
-        <p>This is the homepage.</p>
-        <p>Try to go to a todo list page.</p>
+        <h2>Autocomplete</h2>
+        <p>
+          <Autocomplete />
+        </p>
       </div>
     );
   },
