@@ -29,7 +29,7 @@
 
     // possible errors
     "comma-dangle": [ 2, "always-multiline" ],
-    "no-console": [ 1, "always" ],
+    "no-console": 1,
 
     // best practices
     "consistent-return": [ 2 ],
