@@ -10,7 +10,9 @@ module.exports = function(options) {
     // second : options.prerender ? './config/secondPrerenderer' : './config/secondApp'
   };
   var loaders = {
-    'jsx' : options.hotComponents ? ['react-hot-loader', 'babel-loader?stage=0'] : 'babel-loader?stage=0',
+    'jsx' : options.hotComponents ?
+      ['react-hot-loader', 'babel-loader?stage=0'] :
+      'babel-loader?stage=0',
     'js' : {
       loader : 'babel-loader?stage=0',
       include : path.join(__dirname, 'app'),
@@ -26,7 +28,9 @@ module.exports = function(options) {
     'html' : 'html-loader',
     'md|markdown' : ['html-loader', 'markdown-loader'],
   };
-  var cssLoader = options.minimize ? 'css-loader?module' : 'css-loader?module&localIdentName=[path][name]---[local]---[hash:base64:5]';
+  var cssLoader = options.minimize ?
+    'css-loader?module' :
+    'css-loader?module&localIdentName=[path][name]---[local]---[hash:base64:5]';
   var stylesheetLoaders = {
     'css' : cssLoader,
     'less' : [cssLoader, 'less-loader'],
@@ -55,7 +59,8 @@ module.exports = function(options) {
     path : path.join(__dirname, 'build', options.prerender ? 'prerender' : 'public'),
     publicPath : publicPath,
     filename : '[name].js' + (options.longTermCaching && !options.prerender ? '?[chunkhash]' : ''),
-    chunkFilename : (options.devServer ? '[id].js' : '[name].js') + (options.longTermCaching && !options.prerender ? '?[chunkhash]' : ''),
+    chunkFilename : (options.devServer ? '[id].js' : '[name].js') +
+      (options.longTermCaching && !options.prerender ? '?[chunkhash]' : ''),
     sourceMapFilename : 'debugging/[file].map',
     libraryTarget : options.prerender ? 'commonjs2' : undefined,
     pathinfo : options.debug || options.prerender,
@@ -89,7 +94,12 @@ module.exports = function(options) {
     }));
   }
   if (options.commonsChunk) {
-    plugins.push(new webpack.optimize.CommonsChunkPlugin('commons', 'commons.js' + (options.longTermCaching && !options.prerender ? '?[chunkhash]' : '')));
+    plugins.push(
+      new webpack.optimize.CommonsChunkPlugin(
+        'commons',
+        'commons.js' + (options.longTermCaching && !options.prerender ? '?[chunkhash]' : '')
+      )
+    );
   }
   var asyncLoader = {
     test : require('./app/route-handlers/async').map(function(name) {
@@ -114,7 +124,9 @@ module.exports = function(options) {
     }
   });
   if (options.separateStylesheet && !options.prerender) {
-    plugins.push(new ExtractTextPlugin('[name].css' + (options.longTermCaching ? '?[contenthash]' : '')));
+    plugins.push(
+      new ExtractTextPlugin('[name].css' + (options.longTermCaching ? '?[contenthash]' : ''))
+    );
   }
   if (options.minimize && !options.prerender) {
     plugins.push(
@@ -142,7 +154,10 @@ module.exports = function(options) {
     output : output,
     target : options.prerender ? 'node' : 'web',
     module : {
-      loaders : [asyncLoader].concat(loadersByExtension(loaders)).concat(loadersByExtension(stylesheetLoaders)).concat(additionalLoaders),
+      loaders : [asyncLoader]
+        .concat(loadersByExtension(loaders))
+        .concat(loadersByExtension(stylesheetLoaders))
+        .concat(additionalLoaders),
     },
     devtool : options.devtool,
     debug : options.debug,
