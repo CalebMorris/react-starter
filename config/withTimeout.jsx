@@ -6,6 +6,6 @@ export default function(fn, timeout, callback) {
   }, timeout);
   fn(function() {
     clearTimeout(to);
-    if(!timedOut) callback();
+    if (!timedOut) callback();
   });
 }

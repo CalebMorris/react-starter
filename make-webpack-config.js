@@ -68,7 +68,7 @@ module.exports = function(options) {
     new webpack.PrefetchPlugin('react'),
     new webpack.PrefetchPlugin('react/lib/ReactComponentBrowserEnvironment'),
   ];
-  if(options.prerender) {
+  if (options.prerender) {
     plugins.push(new StatsPlugin(path.join(__dirname, 'build', 'stats.prerender.json'), {
       chunkModules : true,
       exclude : excludeFromStats,
@@ -88,7 +88,7 @@ module.exports = function(options) {
       exclude : excludeFromStats,
     }));
   }
-  if(options.commonsChunk) {
+  if (options.commonsChunk) {
     plugins.push(new webpack.optimize.CommonsChunkPlugin('commons', 'commons.js' + (options.longTermCaching && !options.prerender ? '?[chunkhash]' : '')));
   }
   var asyncLoader = {
@@ -102,19 +102,19 @@ module.exports = function(options) {
 
   Object.keys(stylesheetLoaders).forEach(function(ext) {
     var stylesheetLoader = stylesheetLoaders[ext];
-    if(Array.isArray(stylesheetLoader)) stylesheetLoader = stylesheetLoader.join('!');
-    if(options.prerender) {
+    if (Array.isArray(stylesheetLoader)) stylesheetLoader = stylesheetLoader.join('!');
+    if (options.prerender) {
       stylesheetLoaders[ext] = stylesheetLoader.replace(/^css-loader/, 'css-loader/locals');
-    } else if(options.separateStylesheet) {
+    } else if (options.separateStylesheet) {
       stylesheetLoaders[ext] = ExtractTextPlugin.extract('style-loader', stylesheetLoader);
     } else {
       stylesheetLoaders[ext] = 'style-loader!' + stylesheetLoader;
     }
   });
-  if(options.separateStylesheet && !options.prerender) {
+  if (options.separateStylesheet && !options.prerender) {
     plugins.push(new ExtractTextPlugin('[name].css' + (options.longTermCaching ? '?[contenthash]' : '')));
   }
-  if(options.minimize && !options.prerender) {
+  if (options.minimize && !options.prerender) {
     plugins.push(
       new webpack.optimize.UglifyJsPlugin({
         compressor : {
@@ -124,7 +124,7 @@ module.exports = function(options) {
       new webpack.optimize.DedupePlugin()
     );
   }
-  if(options.minimize) {
+  if (options.minimize) {
     plugins.push(
       new webpack.DefinePlugin({
         'process.env' : {

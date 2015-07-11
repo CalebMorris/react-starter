@@ -14,7 +14,7 @@ export default function renderApplication(routes, stores, options) {
 
     // On every page navigation invalidate data from the stores
     // This is not needed when the server notifies the client about changes (WebSocket, SSE)
-    if(!initialRun) {
+    if (!initialRun) {
       Object.keys(stores).forEach(function(key) {
         stores[key].outdate();
       });
@@ -28,7 +28,7 @@ export default function renderApplication(routes, stores, options) {
     // try to fetch data for a defined timespan
     // when the data is not fully fetched after the timeout components are rendered (with missing/old data)
     withTimeout(async.forEach.bind(async, state.routes, function(route, callback) {
-      if(route.handler.chargeStores) {
+      if (route.handler.chargeStores) {
         route.handler.chargeStores(stores, state.params, callback);
       } else {
         callback();
