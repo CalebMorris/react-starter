@@ -1,4 +1,4 @@
-import { ItemsStore } from "items-store";
+import { ItemsStore } from 'items-store';
 
 // create stores for prerending
 // readItems contains async methods for fetching the data from database

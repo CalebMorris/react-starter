@@ -1,8 +1,8 @@
-import async from "async";
-import React from "react";
-import Router from "react-router";
-import withTimeout from "./withTimeout";
-import ReactUpdates from "react/lib/ReactUpdates";
+import async from 'async';
+import React from 'react';
+import Router from 'react-router';
+import withTimeout from './withTimeout';
+import ReactUpdates from 'react/lib/ReactUpdates';
 
 export default function renderApplication(routes, stores, options) {
   var timeout = options.timeout || 600;
@@ -22,7 +22,7 @@ export default function renderApplication(routes, stores, options) {
     initialRun = false;
 
     ReactUpdates.batchedUpdates(function() {
-      stores.Router.setItemData("transition", state);
+      stores.Router.setItemData('transition', state);
     });
 
     // try to fetch data for a defined timespan
@@ -36,13 +36,13 @@ export default function renderApplication(routes, stores, options) {
     }), timeout, function() {
 
       ReactUpdates.batchedUpdates(function() {
-        stores.Router.setItemData("transition", null);
+        stores.Router.setItemData('transition', null);
       });
 
       // Render the components with the stores
       React.render(
         <StoresWrapper Component={Application} stores={stores}/>,
-        document.getElementById("content")
+        document.getElementById('content')
       );
     });
   });

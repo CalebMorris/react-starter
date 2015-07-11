@@ -87,7 +87,7 @@ const Autocomplete = React.createClass({
       <form onSubmit={this.onSubmit}>
         <div>
           <Autosuggest
-            ref="autosuggest"
+            ref='autosuggest'
             suggestions={this.getSuggestions}
             suggestionValue={this.getSuggestionValue}
             onSuggestionSelected={this.onSuggestionSelected}
