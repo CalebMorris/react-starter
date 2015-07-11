@@ -26,8 +26,9 @@ export default class Prerenderer {
 
         // get the data from the stores for embedding into the page
         var data = Object.keys(stores).reduce(function(obj, name) {
-          if (!stores[name].desc.local)
+          if (!stores[name].desc.local) {
             obj[name] = stores[name].getData();
+          }
           return obj;
         }, {});
 

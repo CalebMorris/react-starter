@@ -102,7 +102,9 @@ module.exports = function(options) {
 
   Object.keys(stylesheetLoaders).forEach(function(ext) {
     var stylesheetLoader = stylesheetLoaders[ext];
-    if (Array.isArray(stylesheetLoader)) stylesheetLoader = stylesheetLoader.join('!');
+    if (Array.isArray(stylesheetLoader)) {
+      stylesheetLoader = stylesheetLoader.join('!');
+    }
     if (options.prerender) {
       stylesheetLoaders[ext] = stylesheetLoader.replace(/^css-loader/, 'css-loader/locals');
     } else if (options.separateStylesheet) {
