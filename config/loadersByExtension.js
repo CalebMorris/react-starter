@@ -10,8 +10,8 @@ module.exports = function loadersByExtension(obj) {
     var exts = key.split('|');
     var value = obj[key];
     var entry = {
-      extensions: exts,
-      test: extsToRegExp(exts)
+      extensions : exts,
+      test : extsToRegExp(exts)
     };
     if(Array.isArray(value)) {
       entry.loaders = value;
