@@ -10,13 +10,13 @@ import NotFoundPage from "routes/NotFoundPage";
 
 // polyfill
 if(!Object.assign)
-	Object.assign = React.__spread; // eslint-disable-line no-underscore-dangle
+  Object.assign = React.__spread; // eslint-disable-line no-underscore-dangle
 
 // export routes
 module.exports = (
-	<Route name="app" path="/" handler={Application}>
-		<Route name="home" path="/home" handler={HomePage} />
-		<DefaultRoute handler={HomePage} />
-		<NotFoundRoute handler={NotFoundPage} />
-	</Route>
+  <Route name="app" path="/" handler={Application}>
+    <Route name="home" path="/home" handler={HomePage} />
+    <DefaultRoute handler={HomePage} />
+    <NotFoundRoute handler={NotFoundPage} />
+  </Route>
 );
