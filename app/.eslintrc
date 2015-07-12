@@ -29,7 +29,7 @@
 
     // possible errors
     "comma-dangle": [ 2, "always-multiline" ],
-    "no-console": 1,
+    "no-console": 2,
 
     // best practices
     "consistent-return": [ 2 ],
@@ -42,7 +42,7 @@
     "no-self-compare": [ 2 ],
     "no-throw-literal": [ 2 ],
     "no-warning-comments": [ 1, { "terms": [ "todo", "fixme" ], "location": "start" } ],
-    "radix": [ 1 ],
+    "radix": [ 2 ],
     "wrap-iife": [ 2 ],
 
     // strict mode
@@ -62,18 +62,21 @@
     // style
     "indent": [ 2, 2, { "indentSwitchCase" : true } ],
     "brace-style": [ 2, "1tbs" ],
-    "camelcase": [ 2, { "properties" : "never" } ],
+    "camelcase": [ 2 ],
     "comma-spacing": [ 2, { "before": false, "after": true } ],
     "consistent-this": [ 2, "self" ],
     "eol-last": [ 2 ],
-    "key-spacing": [ 1, { "beforeColon": true, "afterColon": true } ],
-    "max-nested-callbacks": [ 1, 3 ],
-    "new-cap": 0, // @todo discuss ( immutable :( )
-    "no-inline-comments": [ 0 ],
+    "key-spacing": [2, {
+      "beforeColon": true,
+      "afterColon": true
+    }],
+    "max-nested-callbacks": [ 2, 3 ],
+    "new-cap": 0,
+    "no-inline-comments": [ 1 ],
     "no-lonely-if": [ 2 ],
     "no-multiple-empty-lines": [ 2 ],
     "no-nested-ternary": [ 2 ],
-    "no-underscore-dangle": [ 0 ],
+    "no-underscore-dangle": [ 2 ],
     "quote-props": [ 2, "as-needed" ],
     "quotes": [ 2, "single", "avoid-escape" ],
     "semi": [ 2, "always" ],
@@ -83,18 +86,18 @@
     "space-in-brackets": [ 0 ],
     "space-infix-ops": [ 2 ],
     "space-return-throw-case": [ 2 ],
-    "space-unary-ops": [ 0 ],
+    "space-unary-ops": [0, { "words": false, "nonwords": false }],
     "spaced-line-comment": [ 2 ],
 
     // es6
-    // @TODO "no-var": [ 0 ],
+    "no-var": [ 2 ],
     "generator-star": [ 2 ],
 
     // legacy
     "max-depth": [ 2, 2 ],
     "max-len": [ 2, 100 ],
     "max-params": [ 2, 4 ],
-    "max-statements": [ 1, 15 ],
+    //"max-statements": [ 2, 15 ], // @TODO
     "no-bitwise": [ 2 ],
 
     // eslint-plugin-react
