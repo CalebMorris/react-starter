@@ -62,7 +62,7 @@ module.exports = function(options) {
     chunkFilename : (options.devServer ? '[id].js' : '[name].js') +
       (options.longTermCaching && !options.prerender ? '?[chunkhash]' : ''),
     sourceMapFilename : 'debugging/[file].map',
-    libraryTarget : options.prerender ? 'commonjs2' : undefined,
+    libraryTarget : options.prerender ? 'commonjs2' : void 0,
     pathinfo : options.debug || options.prerender,
   };
   var excludeFromStats = [
