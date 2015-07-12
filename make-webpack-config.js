@@ -108,8 +108,6 @@ module.exports = function(options) {
     loader : options.prerender ? 'react-proxy-loader/unavailable' : 'react-proxy-loader',
   };
 
-
-
   Object.keys(stylesheetLoaders).forEach(function(ext) {
     var stylesheetLoader = stylesheetLoaders[ext];
     if (Array.isArray(stylesheetLoader)) {
